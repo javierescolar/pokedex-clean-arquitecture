@@ -1,0 +1,14 @@
+.img-screen {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+section.screen {
+  display: flex;
+  justify-content: center;
+  border: solid 2px rgb(0, 0, 0);
+  border-radius: 5px;
+  height: 100px;
+  background-image: url('../../../../assets/img/screen.jpg');
+}

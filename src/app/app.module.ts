@@ -1,18 +1,19 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpErrorInterceptorProvider } from './core/interceptors/http-error.interceptor';
+import { PokemonRepository } from './pokemon/domain/pokemon.repository';
+import { PokeapiService } from './pokemon/infrastucture/pokeapi/pokeapi.service';
+import { PokedexComponent } from './views/pokedex/pokedex.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
+  declarations: [AppComponent],
+  imports: [BrowserModule, HttpClientModule, PokedexComponent],
+  providers: [
+    HttpErrorInterceptorProvider,
+    { provide: PokemonRepository, useClass: PokeapiService },
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,0 +1,33 @@
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 12px 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  list-style: none;
+}
+
+.border{
+  border: solid 1px black;
+  width: 100%;
+}
+.bar {
+  height:15px;
+  background-color: rgb(226, 147, 0);
+}
+
+
+
+
+span.value {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    font-weight: bold;
+}

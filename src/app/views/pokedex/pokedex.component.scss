@@ -1,0 +1,27 @@
+div.container {
+  background-color: rgb(214, 0, 0);
+  width: 360px;
+  min-height: 480px;
+  border-radius: 5px;
+  border: solid 5px rgb(35, 35, 35);
+  padding: 25px;
+}
+
+section.buttons{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px auto;
+  button {
+    background-color: rgb(56, 56, 56);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    border: solid 1px black;
+    font-size: 16px;
+
+  }
+  button:hover {
+    background-color: rgb(0, 0, 0);
+  }
+}

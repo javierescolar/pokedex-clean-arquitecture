@@ -1,0 +1,11 @@
+<div class="container" *ngIf="pokemon">
+  <app-screen [image]="pokemon.image"></app-screen>
+  <app-name [name]="pokemon.name" [type]="pokemon.type"></app-name>
+  <app-input></app-input>
+  <app-stats [stats]="pokemon.stats"></app-stats>
+  <section class="buttons">
+    <button (click)="previusPokemon()">Anterior</button>
+    <button (click)="nextPokemon()">Siguiente</button>
+  </section>
+</div>
+

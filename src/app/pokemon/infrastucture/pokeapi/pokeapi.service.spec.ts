@@ -41,4 +41,21 @@ describe('PokeapiService', () => {
       },
     });
   });
+
+  it('getPokemonByName(name:string) should return a pokemon', (done) => {
+    service.getPokemonByName('ditto').subscribe((result) => {
+      expect(result).toBeTruthy();
+      done();
+    });
+  });
+
+  it('getPokemon("madeUpName") should returned HttpErrorResponse with statusCode 404', (done) => {
+    service.getPokemonByName('madeUpName').subscribe({
+      error(err: HttpErrorResponse) {
+        expect(err).toBeInstanceOf(HttpErrorResponse);
+        expect(err.status).toEqual(404);
+        done();
+      },
+    });
+  });
 });

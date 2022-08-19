@@ -1,4 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ElementRef } from '@angular/core';
+import {
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick,
+} from '@angular/core/testing';
 import { PokemonStoreService } from 'src/app/pokemon/application/pokemon-store.service';
 import { GetPokemonByNameUseCaseService } from 'src/app/pokemon/application/useCases/get-pokemon-by-name-use-case.service';
 import { PokemonRepository } from 'src/app/pokemon/domain/pokemon.repository';
@@ -27,5 +33,27 @@ describe('InputComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('searchPokemonsearchPokemon() toHaveBeenCalled when key enter input has pressed', fakeAsync(() => {
+    spyOn(component, 'searchPokemon');
+    let input: HTMLInputElement =
+      fixture.debugElement.nativeElement.querySelector('input');
+    input.value = 'nombre pokemon';
+    input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
+    tick();
+    expect(component.searchPokemon).toHaveBeenCalled();
+  }));
+
+  it('searchPokemon() should empty input value', () => {
+    component.input.nativeElement.value = 'Test';
+    component.searchPokemon();
+    expect(component.input.nativeElement.value).toEqual('');
+  });
+
+  it('searchPokemon() with empty input value shoud returned undefined', () => {
+    component.input.nativeElement.value = '';
+    component.searchPokemon();
+    expect(component.searchPokemon()).toBeUndefined();
   });
 });

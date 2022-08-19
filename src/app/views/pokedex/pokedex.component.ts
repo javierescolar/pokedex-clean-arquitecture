@@ -26,7 +26,7 @@ import { StatsComponent } from './stats/stats.component';
 })
 export class PokedexComponent implements OnInit, OnDestroy {
   pokemon$!: Subscription;
-  private idPokemon!: number;
+  idPokemon!: number;
   pokemon!: Pokemon;
 
   constructor(private readonly store: PokemonStoreService) {}
@@ -43,12 +43,10 @@ export class PokedexComponent implements OnInit, OnDestroy {
   }
 
   nextPokemon() {
-    if (this.idPokemon === 151) return;
     this.store.getPokemon(++this.idPokemon);
   }
 
   previusPokemon() {
-    if (this.idPokemon === 1) return;
     this.store.getPokemon(--this.idPokemon);
   }
 }

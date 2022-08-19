@@ -21,4 +21,24 @@ describe('PokemonStoreService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('Observable should returned pikachu when something called to getPokemon(25)', (done) => {
+    service.getPokemon(25);
+    service.select().subscribe((result) => {
+      expect(result.idPokemon).toEqual(25);
+      expect(result.pokemon).toBeTruthy();
+      expect(result.pokemon?.name.toLowerCase()).toEqual('pikachu');
+      done();
+    });
+  });
+
+  it('Observable should returned pikachu when something called to getPokemonByName("pikachu")', (done) => {
+    service.getPokemonByName('pikachu');
+    service.select().subscribe((result) => {
+      expect(result.idPokemon).toEqual(25);
+      expect(result.pokemon).toBeTruthy();
+      expect(result.pokemon?.name.toLowerCase()).toEqual('pikachu');
+      done();
+    });
+  });
 });

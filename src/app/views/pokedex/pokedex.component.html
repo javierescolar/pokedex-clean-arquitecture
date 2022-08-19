@@ -4,8 +4,8 @@
   <app-input></app-input>
   <app-stats [stats]="pokemon.stats"></app-stats>
   <section class="buttons">
-    <button (click)="previusPokemon()">Anterior</button>
-    <button (click)="nextPokemon()">Siguiente</button>
+    <button (click)="previusPokemon()" class="btn-previus" [disabled]="idPokemon<=1">Anterior</button>
+    <button (click)="nextPokemon()" class="btn-next" [disabled]="idPokemon>=151">Siguiente</button>
   </section>
 </div>
 

@@ -11333,4 +11333,8 @@ describe('MapperPokeapiService', () => {
     const result = service.mapFrom(pokemonPokeApiExample);
     expect(result).toBeInstanceOf(Pokemon);
   });
+
+  it('mapTo(input: PokemonEntity) should returned Throw', () => {
+    expect(service.mapTo).toThrow();
+  });
 });

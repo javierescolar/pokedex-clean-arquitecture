@@ -19,4 +19,8 @@ describe('ScreenComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should rendered img tag', () => {
+    expect(fixture.nativeElement.querySelector('img')).toBeTruthy();
+  });
 });
